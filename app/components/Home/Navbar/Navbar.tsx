@@ -6,10 +6,10 @@ export default function Navbar() {
       <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
         {/* {ReadNext Logo} */}
         <div className="flex items-center space-x-2">
-          <div className="w-12 h-12 bg-[#3D8A94] rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center">
             <FaBook className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-xl hidden sm:block md:text-2xl text-[#3D8A94] font-bold">
+          <h1 className="text-xl hidden sm:block md:text-2xl text-gray-200 font-bold">
             ReadNext
           </h1>
         </div>

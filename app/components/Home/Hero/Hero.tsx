@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="pt-[12vh] pb-24">
-      <div className="container w-[90%] xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-40">
+      <div className="container w-[90%] xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-50">
         {/* Left Section */}
         <div>
-          <h1 className="text-5xl font-bold text-[#E19B05]">
+          <h1 className="text-5xl font-bold text-gray-200">
             Discover Your Next Favorite Book
           </h1>
           <p className="mt-10 text-lg text-gray-300">
@@ -21,10 +21,10 @@ export default function Hero() {
         {/* Right Section */}
         <div className="flex justify-center">
           <Image
-            src="/images/file_search.png"
+            src="/images/books.png"
             alt="test"
-            height={900}
-            width={900}
+            height={1000}
+            width={1000}
           />
         </div>
       </div>
