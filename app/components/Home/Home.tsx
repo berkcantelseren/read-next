@@ -1,3 +1,9 @@
+import Hero from "./Hero/Hero";
+
 export default function Home() {
-  return <div className="overflow-hidden">home page</div>;
+  return (
+    <div className="overflow-hidden">
+      <Hero />
+    </div>
+  );
 }
