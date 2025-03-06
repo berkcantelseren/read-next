@@ -1,19 +1,29 @@
 import Image from "next/image";
 
+import { Saira } from "next/font/google";
+
+const DancingFont = Saira({
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function Hero() {
   return (
     <section className="pt-[12vh] pb-24">
       <div className="container w-[90%] xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-[12.5rem]">
         {/* Left Section */}
         <div>
-          <h1 className="text-5xl font-bold text-gray-200">
-            Discover Your Next Favorite Book
+          <h1
+            className={`${DancingFont.className} text-5xl font-bold text-gray-200`}
+          >
+            Find What To Read Next
           </h1>
-          <p className="mt-10 text-lg text-gray-300">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem eum,
-            ad labore unde dignissimos quidem.
+          <p className={`${DancingFont.className} mt-10 text-lg text-gray-300`}>
+            Stuck on what to read next? We've got you covered with great
+            recommendations to keep your bookshelf full.
           </p>
-          <button className="mt-10 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition">
+          <button
+            className={`${DancingFont.className} mt-10 px-6 py-3 bg-blue-800 hover:bg-blue-700 text-white font-semibold rounded-lg transition cursor-pointer`}
+          >
             Get Started
           </button>
         </div>
