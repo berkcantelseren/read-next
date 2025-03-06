@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getBookRecommendations } from "../lib/hugging";
 import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
@@ -29,6 +29,7 @@ export default function App() {
   };
   const [recommendations, setRecommendations] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const recommendationsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (searchQuery.length >= 3 && !isBookSelected) {
@@ -66,6 +67,15 @@ export default function App() {
     );
     setRecommendations(response);
     setLoading(false);
+
+    setTimeout(() => {
+      if (recommendationsRef.current) {
+        recommendationsRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -90,7 +100,7 @@ export default function App() {
               <div
                 key={index}
                 className="text-left bg-gray-800 p-4 rounded-xl cursor-pointer"
-                onClick={() => handleBookSelect(book)} // Select book on click
+                onClick={() => handleBookSelect(book)}
               >
                 <h3 className="text-orange-500 text-xl font-bold">
                   {book.volumeInfo.title}
@@ -153,7 +163,10 @@ export default function App() {
               {loading ? "Loading..." : "Get Recommendations"}
             </button>
             {recommendations && (
-              <div className="mt-8 bg-gray-800 p-4 rounded-xl">
+              <div
+                className="mt-8 bg-gray-800 p-4 rounded-xl"
+                ref={recommendationsRef}
+              >
                 <h2 className="text-white text-2xl p-5">Recommended Books</h2>
                 <div className="text-white mt-2 tracking-wide leading-relaxed space-y-4">
                   {recommendations.split("\n").map((item, index) => (
