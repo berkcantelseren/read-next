@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { Saira } from "next/font/google";
 import { FaArrowDown, FaBook } from "react-icons/fa";
+import { HiArrowTurnLeftDown, HiArrowTurnRightDown } from "react-icons/hi2";
 
 const DancingFont = Saira({
   weight: "400",
@@ -57,7 +58,10 @@ export default function Hero() {
             >
               Find best books we think you'll love
             </div>
+            <HiArrowTurnLeftDown className="w-8 h-10 text-white absolute translate-y-8 -translate-x-10" />
+            <HiArrowTurnRightDown className="w-8 h-10 text-white absolute translate-x-62 translate-y-7" />
           </div>
+
           <div className="flex space-x-3">
             <FaBook className="w-8 h-8 text-[#F28D8D] animate-rotate" />
             <FaBook className="w-8 h-8 text-[#A0C4FF] animate-rotate" />
