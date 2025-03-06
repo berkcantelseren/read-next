@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="pt-[12vh] pb-24">
-      <div className="container w-[90%] xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-50">
+      <div className="container w-[90%] xl:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-[12.5rem]">
         {/* Left Section */}
         <div>
           <h1 className="text-5xl font-bold text-gray-200">
@@ -22,12 +22,13 @@ export default function Hero() {
         <div className="flex justify-center">
           <Image
             src="/images/books.png"
-            alt="test"
+            alt="book images"
             height={1000}
             width={1000}
           />
         </div>
       </div>
+      <hr className="w-[90%] xl:w-[80%] mx-auto border-t border-gray-600 my-12" />
     </section>
   );
 }
