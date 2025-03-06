@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Saira } from "next/font/google";
 import { FaArrowDown, FaBook } from "react-icons/fa";
 import { HiArrowTurnLeftDown, HiArrowTurnRightDown } from "react-icons/hi2";
+import Link from "next/link";
 
 const DancingFont = Saira({
   weight: "400",
@@ -23,11 +24,13 @@ export default function Hero() {
             Stuck on what to read next? We've got you covered with great
             recommendations to keep your bookshelf full.
           </p>
-          <button
-            className={`${DancingFont.className} mt-10 px-6 py-3 bg-blue-800 hover:bg-blue-700 text-white font-semibold rounded-lg transition cursor-pointer`}
-          >
-            Get Started
-          </button>
+          <Link href="/app">
+            <button
+              className={`${DancingFont.className} mt-10 px-6 py-3 bg-blue-800 hover:bg-blue-700 text-white font-semibold rounded-lg transition cursor-pointer`}
+            >
+              Get Started
+            </button>
+          </Link>
         </div>
 
         {/* Right Section */}
