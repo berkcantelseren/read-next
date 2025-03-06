@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { FaArrowLeft, FaArrowRight, FaSearch } from "react-icons/fa";
+import { getBookRecommendations } from "../lib/hugging";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
 interface Book {
   volumeInfo: {
@@ -26,6 +27,8 @@ export default function App() {
   const handleBackButtonClick = () => {
     window.location.reload();
   };
+  const [recommendations, setRecommendations] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (searchQuery.length >= 3 && !isBookSelected) {
@@ -52,6 +55,17 @@ export default function App() {
     if (isBookSelected) {
       setIsBookSelected(false);
     }
+  };
+
+  const handleGetRecommendations = async () => {
+    if (!selectedBook) return;
+
+    setLoading(true);
+    const response = await getBookRecommendations(
+      selectedBook.volumeInfo.title
+    );
+    setRecommendations(response);
+    setLoading(false);
   };
 
   return (
@@ -131,9 +145,23 @@ export default function App() {
                   className="mt-15 mx-auto rounded-md "
                 />
               )}
-            <button className="mt-10 mb-10 text-black border-1 rounded-xl p-2 bg-white cursor-pointer">
-              Get Recommendations
+            <button
+              className="mt-10 mb-10 text-black border-1 rounded-xl p-2 bg-white cursor-pointer"
+              onClick={handleGetRecommendations}
+              disabled={loading}
+            >
+              {loading ? "Loading..." : "Get Recommendations"}
             </button>
+            {recommendations && (
+              <div className="mt-8 bg-gray-800 p-4 rounded-xl">
+                <h2 className="text-white text-2xl p-5">Recommended Books</h2>
+                <div className="text-white mt-2 tracking-wide leading-relaxed space-y-4">
+                  {recommendations.split("\n").map((item, index) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>
