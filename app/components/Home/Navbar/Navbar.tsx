@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaBook } from "react-icons/fa";
 
 export default function Navbar() {
@@ -10,7 +11,9 @@ export default function Navbar() {
             <FaBook className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-xl hidden sm:block md:text-2xl text-gray-200 font-bold">
-            ReadNext
+            <Link href="/#" className="cursor-pointer">
+              <span>ReadNext</span>
+            </Link>
           </h1>
         </div>
       </div>
